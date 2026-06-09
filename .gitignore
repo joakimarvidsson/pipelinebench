@@ -13,6 +13,9 @@ build/
 *.egg-info/
 .workspaces/
 results/
+!examples/
+!examples/results/
+!examples/results/**
 pipelinebench-results.json
 pipelinebench-leaderboard.md
 pipelinebench-leaderboard.json

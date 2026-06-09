@@ -1,0 +1,19 @@
+[
+  {
+    "task_id": "feature_leakage_timeseries",
+    "title": "Time-series feature leakage",
+    "category": "ml",
+    "difficulty": "medium",
+    "passed": true,
+    "duration_seconds": 0.495,
+    "command": "python -m pytest tests",
+    "return_code": 0,
+    "stdout_tail": "============================= test session starts ==============================\nplatform darwin -- Python 3.14.2, pytest-9.0.3, pluggy-1.6.0\nrootdir: .\nconfigfile: pyproject.toml\ncollected 2 items\n\ntests/test_pipeline.py ..                                                [100%]\n\n============================== 2 passed in 0.26s ===============================\n",
+    "stderr_tail": "",
+    "started_at": "2026-06-09T21:14:47.862997Z",
+    "finished_at": "2026-06-09T21:14:48.358373Z",
+    "workspace_path": ".agent-runs/codex-v0.1.0/feature_leakage_timeseries",
+    "test_count": 2,
+    "error_summary": ""
+  }
+]
