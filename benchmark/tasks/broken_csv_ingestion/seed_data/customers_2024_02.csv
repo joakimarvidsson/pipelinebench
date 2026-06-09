@@ -1,0 +1,3 @@
+customer_id,name,signup_date,lifetime_value,email
+2,Bob Jones,2024-01-05,"1,300.75",bob@example.com
+4,Dana Ray,not a date,"2,000",dana@example.com

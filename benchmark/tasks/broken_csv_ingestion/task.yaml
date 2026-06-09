@@ -1,0 +1,20 @@
+id: broken_csv_ingestion
+title: Broken CSV ingestion
+category: ingestion
+difficulty: easy
+skills:
+  - csv
+  - parquet
+  - schema-normalization
+  - data-quality
+entrypoint: starter/pipeline.py
+expected_outputs:
+  - output/customers.parquet
+time_budget_minutes: 20
+allowed_files:
+  - starter/**
+  - seed_data/**
+validation_command: python -m pytest tests
+scoring:
+  type: pytest
+  pass_threshold: 1.0

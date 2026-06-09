@@ -1,0 +1,21 @@
+id: feature_leakage_timeseries
+title: Time-series feature leakage
+category: ml
+difficulty: medium
+skills:
+  - time-series
+  - feature-engineering
+  - leakage-prevention
+  - validation-splits
+entrypoint: starter/pipeline.py
+expected_outputs:
+  - output/features.parquet
+  - output/metrics.json
+time_budget_minutes: 40
+allowed_files:
+  - starter/**
+  - seed_data/**
+validation_command: python -m pytest tests
+scoring:
+  type: pytest
+  pass_threshold: 1.0

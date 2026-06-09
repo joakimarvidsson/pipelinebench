@@ -1,0 +1,62 @@
+[project]
+name = "pipelinebench"
+version = "0.1.0"
+description = "An open benchmark for evaluating AI agents on real-world data engineering failures."
+readme = "README.md"
+requires-python = ">=3.13,<3.15"
+license = "MIT"
+authors = [{ name = "Joakim Arvidsson" }]
+keywords = ["ai-agents", "benchmark", "data-engineering", "machine-learning", "pipelines"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Software Development :: Testing",
+]
+dependencies = [
+  "duckdb>=1.4.0",
+  "pandas>=2.3.0",
+  "polars>=1.35.0",
+  "pyarrow>=21.0.0",
+  "pydantic>=2.12.0",
+  "pyyaml>=6.0.2",
+  "rich>=14.0.0",
+  "typer>=0.20.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/joakimarvidsson/pipelinebench"
+Repository = "https://github.com/joakimarvidsson/pipelinebench"
+Issues = "https://github.com/joakimarvidsson/pipelinebench/issues"
+
+[project.scripts]
+pipelinebench = "pipelinebench.cli:app"
+
+[dependency-groups]
+dev = [
+  "pytest>=9.0.0",
+  "ruff>=0.14.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.9.0,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "pipelinebench"
+module-root = "src"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

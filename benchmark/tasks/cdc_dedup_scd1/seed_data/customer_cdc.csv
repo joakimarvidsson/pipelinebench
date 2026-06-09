@@ -1,0 +1,9 @@
+event_id,customer_id,event_type,event_ts,event_sequence,name,status
+e1,1,insert,2024-03-01T10:00:00,1,Alice,bronze
+e2,2,insert,2024-03-01T10:05:00,2,Bob,bronze
+e3,1,update,2024-03-02T09:00:00,3,Alice,silver
+e3_dup,1,update,2024-03-02T09:00:00,3,Alice,silver
+e4,3,insert,2024-03-02T09:30:00,4,Charlie,bronze
+e5,2,delete,2024-03-03T08:00:00,5,Bob,bronze
+e6,3,update,2024-03-01T08:00:00,0,Charles,gold
+e7,3,update,2024-03-04T08:00:00,6,Charlie,gold

@@ -1,0 +1,20 @@
+id: cdc_dedup_scd1
+title: CDC deduplication for SCD1 current state
+category: cdc
+difficulty: medium
+skills:
+  - cdc
+  - deduplication
+  - scd1
+  - deterministic-ordering
+entrypoint: starter/pipeline.py
+expected_outputs:
+  - output/customer_dimension.parquet
+time_budget_minutes: 35
+allowed_files:
+  - starter/**
+  - seed_data/**
+validation_command: python -m pytest tests
+scoring:
+  type: pytest
+  pass_threshold: 1.0
