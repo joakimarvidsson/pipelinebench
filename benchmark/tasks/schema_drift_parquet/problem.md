@@ -6,3 +6,7 @@ fields.
 
 Fix `starter/pipeline.py` so it reads every seed partition and writes `output/accounts.parquet` with
 a stable schema.
+
+The downstream contract expects `account_id`, `balance`, `is_active`, `opened_at`, and
+`account_tier`. New nullable fields should be preserved when they are part of that contract rather
+than dropped because an earlier partition did not contain them.

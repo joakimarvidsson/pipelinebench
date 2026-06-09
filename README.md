@@ -4,6 +4,9 @@
 
 **Can your AI agent fix a broken data pipeline?**
 
+[![Python](https://img.shields.io/badge/python-3.13%20%7C%203.14-blue)](pyproject.toml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 PipelineBench is a local, reproducible benchmark and reference harness for testing whether AI
 coding agents can repair realistic data engineering and ML pipeline failures. It is benchmark-first,
 agent-agnostic, offline by default, and built around strong task tests with visible leaderboard
@@ -16,11 +19,14 @@ output.
 
 ```bash
 uv sync
+uv run pipelinebench --version
 uv run pipelinebench list-tasks
 uv run pipelinebench run-task broken_csv_ingestion --workspace .workspaces/broken_csv_ingestion
+uv run pipelinebench evaluate broken_csv_ingestion --submission .workspaces/broken_csv_ingestion
 ```
 
-The starter task should fail before an agent fixes it. That failure is the benchmark prompt.
+The starter task should fail before an agent fixes it. That failure is the benchmark prompt, not a
+setup error.
 
 ## Why this exists
 
@@ -68,6 +74,34 @@ uv run pipelinebench leaderboard --results results/pipelinebench-results.json
 ```
 
 Do not report starter failures as successful benchmark results.
+
+## Run a Task
+
+```bash
+uv run pipelinebench run-task broken_csv_ingestion --workspace .workspaces/broken_csv_ingestion
+```
+
+This creates a clean local workspace containing `problem.md`, `task.yaml`, `seed_data/`, `starter/`,
+and `tests/`. Maintainer-only notes are excluded.
+
+## Evaluate an Agent
+
+After an agent edits the workspace:
+
+```bash
+uv run pipelinebench evaluate broken_csv_ingestion --submission .workspaces/broken_csv_ingestion
+```
+
+The command writes `.pipelinebench-result.json` by default inside the submission workspace.
+
+## Generate a Leaderboard
+
+```bash
+uv run pipelinebench run-suite --workspace .workspaces/suite --output results/pipelinebench-results.json
+uv run pipelinebench leaderboard --results results/pipelinebench-results.json --output-prefix results/leaderboard
+```
+
+The leaderboard command writes readable Markdown and machine-readable JSON.
 
 ## Supported agent workflows
 
@@ -122,6 +156,25 @@ See [docs/task-authoring.md](docs/task-authoring.md).
 PipelineBench v0.1 is local and offline by default, but it is not a security sandbox. Validation
 commands execute on your machine in the selected workspace. Review third-party tasks before running
 them and use your own OS/container isolation if you need stronger boundaries.
+
+## Launch Status
+
+PipelineBench v0.1.0 is ready for a first public GitHub launch:
+
+- five bundled starter-failing tasks
+- one maintainer reference solution validated in tests
+- local JSON result artifacts
+- Markdown and JSON leaderboard output
+- CI configured for Python 3.13 and 3.14
+
+Suggested GitHub description:
+
+> An open benchmark for evaluating AI agents on real-world data engineering and ML pipeline failures.
+
+Suggested topics:
+
+`ai-agents`, `benchmark`, `data-engineering`, `mlops`, `duckdb`, `polars`, `python`, `swe-bench`,
+`llm-evaluation`, `pipeline`
 
 ## Roadmap
 

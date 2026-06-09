@@ -7,6 +7,9 @@ The starter pipeline is intentionally brittle. Fix it so it handles mixed column
 numeric strings with thousands separators, missing values, duplicate customer rows, and deterministic
 output ordering.
 
+Business expectation: keep one record per `customer_id`, prefer the most complete/latest record when
+duplicates appear, and do not let malformed dates or missing emails crash the ingestion job.
+
 Run:
 
 ```bash
