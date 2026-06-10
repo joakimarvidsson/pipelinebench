@@ -1,13 +1,18 @@
 {
   "baseline_id": "codex-v0.1.0",
   "tool": "Codex",
+  "model": "Codex, model not reported by CLI/UI",
+  "reasoning_level": "High",
   "pipelinebench_version": "v0.1.0",
   "pipelinebench_commit": "a46162f",
-  "date": "2026-06-10 AEST",
+  "date": "2026-06-11 AEST",
   "python_version": "3.14.2",
   "task_count": 5,
   "passed_tasks": 5,
   "pass_rate": 1.0,
-  "result_path_note": "workspace_path values are normalized to repo-relative paths for publication.",
+  "completed_independently": true,
+  "benchmark_tests_modified": false,
+  "harness_modified": false,
+  "result_path_note": "Local absolute paths are normalized to repo-relative paths for publication.",
   "formal_leaderboard": false
 }

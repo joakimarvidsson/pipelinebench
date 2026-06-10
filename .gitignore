@@ -12,6 +12,7 @@ dist/
 build/
 *.egg-info/
 .workspaces/
+.agent-runs/
 results/
 !examples/
 !examples/results/

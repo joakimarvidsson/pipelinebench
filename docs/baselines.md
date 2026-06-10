@@ -8,7 +8,9 @@ not be treated as a statistically meaningful model comparison.
 | Field | Value |
 | --- | --- |
 | Tool | Codex |
-| Date | 2026-06-10 AEST |
+| Model | Codex, model not reported by CLI/UI |
+| Reasoning level | High |
+| Date | 2026-06-11 AEST |
 | PipelineBench version | v0.1.0 |
 | PipelineBench commit | `a46162f` |
 | Python | 3.14.2 |
@@ -19,11 +21,11 @@ not be treated as a statistically meaningful model comparison.
 
 | Task | Result | Tests | Duration |
 | --- | --- | ---: | ---: |
-| `broken_csv_ingestion` | PASS | 2 | 0.519s |
-| `schema_drift_parquet` | PASS | 1 | 0.465s |
-| `cdc_dedup_scd1` | PASS | 1 | 0.485s |
-| `feature_leakage_timeseries` | PASS | 2 | 0.495s |
-| `duckdb_sql_regression` | PASS | 1 | 0.498s |
+| `broken_csv_ingestion` | PASS | 2 | 0.591s |
+| `schema_drift_parquet` | PASS | 1 | 0.547s |
+| `cdc_dedup_scd1` | PASS | 1 | 0.495s |
+| `feature_leakage_timeseries` | PASS | 2 | 0.500s |
+| `duckdb_sql_regression` | PASS | 1 | 0.505s |
 
 Summary: 5/5 tasks passed under the public v0.1.0 tests.
 
@@ -32,24 +34,23 @@ Summary: 5/5 tasks passed under the public v0.1.0 tests.
 ```bash
 git switch -c baseline/codex-v0.1.0
 
-rm -rf .agent-runs/codex-v0.1.0 results/codex-v0.1.0
-mkdir -p results/codex-v0.1.0
+rm -rf .agent-runs/codex-v0.1.0
+mkdir -p .agent-runs/codex-v0.1.0/results
 
 for task in broken_csv_ingestion schema_drift_parquet cdc_dedup_scd1 feature_leakage_timeseries duckdb_sql_regression; do
   uv run --python 3.14 pipelinebench run-task "$task" \
-    --workspace ".agent-runs/codex-v0.1.0/$task" \
-    --output "results/codex-v0.1.0/${task}-initial.json"
+    --workspace ".agent-runs/codex-v0.1.0/$task"
 done
 
 for task in broken_csv_ingestion schema_drift_parquet cdc_dedup_scd1 feature_leakage_timeseries duckdb_sql_regression; do
   uv run --python 3.14 pipelinebench evaluate "$task" \
     --submission ".agent-runs/codex-v0.1.0/$task" \
-    --output "results/codex-v0.1.0/${task}.json"
+    --output ".agent-runs/codex-v0.1.0/results/${task}.json"
 done
 
 uv run --python 3.14 pipelinebench leaderboard \
-  --results results/codex-v0.1.0/results.json \
-  --output-prefix results/codex-v0.1.0/leaderboard
+  --results examples/results/codex-v0.1.0/results.json \
+  --output-prefix examples/results/codex-v0.1.0/leaderboard
 ```
 
 The published JSON under `examples/results/codex-v0.1.0/` normalizes local absolute workspace paths
@@ -62,4 +63,7 @@ task metadata are copied from the actual local evaluation result JSON.
 - This is a single local run, not a repeated or statistically robust evaluation.
 - The task workspaces were fixed manually by Codex in this repository session, not by an automated
   standardized agent runner.
+- Codex did not read maintainer solution notes or reference solutions, and changed only each
+  generated workspace's `starter/pipeline.py`.
+- Local agent runs may vary by model version, prompt, settings, and environment.
 - Results are useful as an initial smoke baseline, not as a formal public ranking.
