@@ -1,0 +1,19 @@
+[
+  {
+    "task_id": "duckdb_sql_regression",
+    "title": "DuckDB SQL revenue regression",
+    "category": "sql",
+    "difficulty": "medium",
+    "passed": true,
+    "duration_seconds": 0.505,
+    "command": "python -m pytest tests",
+    "return_code": 0,
+    "stdout_tail": "============================= test session starts ==============================\nplatform darwin -- Python 3.14.2, pytest-9.0.3, pluggy-1.6.0\nrootdir: .\nconfigfile: pyproject.toml\ncollected 1 item\n\ntests/test_pipeline.py .                                                 [100%]\n\n============================== 1 passed in 0.28s ===============================\n",
+    "stderr_tail": "",
+    "started_at": "2026-06-10T19:45:02.866527Z",
+    "finished_at": "2026-06-10T19:45:03.371904Z",
+    "workspace_path": ".agent-runs/codex-v0.1.0/duckdb_sql_regression",
+    "test_count": 1,
+    "error_summary": ""
+  }
+]

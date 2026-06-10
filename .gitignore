@@ -12,7 +12,11 @@ dist/
 build/
 *.egg-info/
 .workspaces/
+.agent-runs/
 results/
+!examples/
+!examples/results/
+!examples/results/**
 pipelinebench-results.json
 pipelinebench-leaderboard.md
 pipelinebench-leaderboard.json

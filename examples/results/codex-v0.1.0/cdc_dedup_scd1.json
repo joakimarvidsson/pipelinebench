@@ -1,0 +1,19 @@
+[
+  {
+    "task_id": "cdc_dedup_scd1",
+    "title": "CDC deduplication for SCD1 current state",
+    "category": "cdc",
+    "difficulty": "medium",
+    "passed": true,
+    "duration_seconds": 0.495,
+    "command": "python -m pytest tests",
+    "return_code": 0,
+    "stdout_tail": "============================= test session starts ==============================\nplatform darwin -- Python 3.14.2, pytest-9.0.3, pluggy-1.6.0\nrootdir: .\nconfigfile: pyproject.toml\ncollected 1 item\n\ntests/test_pipeline.py .                                                 [100%]\n\n============================== 1 passed in 0.26s ===============================\n",
+    "stderr_tail": "",
+    "started_at": "2026-06-10T19:45:01.591738Z",
+    "finished_at": "2026-06-10T19:45:02.087432Z",
+    "workspace_path": ".agent-runs/codex-v0.1.0/cdc_dedup_scd1",
+    "test_count": 1,
+    "error_summary": ""
+  }
+]
