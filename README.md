@@ -105,9 +105,10 @@ The leaderboard command writes readable Markdown and machine-readable JSON.
 
 ## Baseline Results
 
-The first public smoke baseline is available in [docs/baselines.md](docs/baselines.md), with result
-artifacts under [examples/results/codex-v0.1.0](examples/results/codex-v0.1.0). It records a local
-Codex run against the v0.1.0 public tests. These artifacts are not a formal leaderboard yet.
+Informal Codex and Cursor Agent smoke baselines are available in
+[docs/baselines.md](docs/baselines.md), with public artifacts under
+[examples/results](examples/results). They record single local runs against the v0.1.0 public tests
+and are not a formal hosted leaderboard.
 
 ## Supported agent workflows
 
